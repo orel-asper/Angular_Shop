@@ -1,0 +1,136 @@
+// register
+POST http://localhost:3005/signup
+content-type: application/json
+
+{
+    "email": "proorel@gmail.com",
+    "password": "12345678",
+    "username": "oSper",
+    "firstName": "orel" ,
+    "lastName": "asper",
+    "ID": 313378671,
+    "city": "jerusalem" ,
+    "street": "hanerd"
+}
+
+###
+//login
+POST http://localhost:3005/signin
+content-type: application/json
+
+{
+    "email": "proorel@gmail.com",
+    "password": "12345678"
+}
+
+###
+// authorization
+GET http://localhost:3005/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MDFjMWEzODEwMjM0YjIxODAyMWFjYTMiLCJ1c2VyTmFtZSI6Im9TcGVyIiwiYWRtaW4iOmZhbHNlLCJjaXR5IjoiamVydXNhbGVtIiwic3RyZWV0IjoiaGFuZXJkIiwiaWF0IjoxNjEzNTcxOTg4fQ.MxivUTHFqvuCaDOeIk-_po-ZCcimLSK7S1KsXacTdiQ
+
+###
+//admin - create-product
+POST http://localhost:3005/create/product
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MDJiOGFiM2ZmZDMwZjVjYWNjMmE4OTUiLCJ1c2VyTmFtZSI6ImFkbWluIiwiYWRtaW4iOnRydWUsImNpdHkiOiJKZXJ1c2FsZW0iLCJzdHJlZXQiOiJoYW5lcmVkIiwiaWF0IjoxNjEzNjQyMDMyfQ.7xfwb8U4EmdMrGYF7JArgc3eh66CBkC4vseoA7v_j1c
+
+{
+   "category": "600866b3d90b53556c0583e6",
+   "title": "Cucumber",
+   "price": 2,
+   "description": "Great Cucumber",
+   "imagePath": "https://image.freepik.com/free-photo/cucumber-isolated-white-background_127657-4988.jpg"
+}
+###
+//admin - update-product
+PUT http://localhost:3005/update-product/600878ddb5e0980bd889cced
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MDJiOGFiM2ZmZDMwZjVjYWNjMmE4OTUiLCJ1c2VyTmFtZSI6ImFkbWluIiwiYWRtaW4iOnRydWUsImNpdHkiOiJKZXJ1c2FsZW0iLCJzdHJlZXQiOiJoYW5lcmVkIiwiaWF0IjoxNjEzNjQyMDMyfQ.7xfwb8U4EmdMrGYF7JArgc3eh66CBkC4vseoA7v_j1c
+
+{
+   "category": "600866b3d90b53556c0583e7",
+   "title": "meat",
+   "price": 40,
+   "description": "Cow Meat low fat",
+   "imagePath": "url"
+}
+
+###
+//get products
+GET http://localhost:3005/products
+content-type: application/json
+
+###
+//find product by category
+GET http://localhost:3005/products/600866b3d90b53556c0583e5
+content-type: application/json
+###
+
+//find one product 
+GET http://localhost:3005/one-product/600866b3d90b53556c0583e5
+content-type: application/json
+###
+
+// search products
+GET http://localhost:3005/search-product/meat
+content-type: application/json
+
+###
+//delete product for dev purposes
+DELETE http://localhost:3005/delete-product/600878ddb5e0980bd889cced
+content-type: application/json
+
+###
+// for dev purpuse populate the user 
+GET http://localhost:3005/popshopping-cart
+content-type: application/json 
+
+###
+// add item to cart
+POST http://localhost:3005/add-item/cart/5ff5978a60a29f3684f659b4
+content-type: application/json
+
+{
+   "product": "6014190f8ced7e13281e0414",
+   "quantity": 2,
+   "totalPrice": 13
+}
+###
+// delete item from cart
+DELETE  http://localhost:3005/delete-cart-item/601c1a3810234b218021aca3/601408bf8ced7e13281e0411
+content-type: application/json
+
+###
+// delete all items from cart
+DELETE  http://localhost:3005/delete-cart/601c1a3810234b218021aca3
+content-type: application/json
+
+###
+//give me the specific user cart
+GET http://localhost:3005/cart/601c1a3810234b218021aca3
+content-type: application/json 
+
+###
+//create new order
+POST http://localhost:3005/create-order
+content-type: application/json
+
+{
+ "cart":"5ff5978a60a29f3684f659b4",
+ "finalPrice": 480,
+ "address":"hanerd",
+ "city": "jerusalem",
+ "date": "10/01/2021",
+ "visa": "6669-6999-6969-3445"
+}
+###
+//get all orders
+GET http://localhost:3005/get-orders
+content-type: application/json
+
+###
+//get all user orders
+GET http://localhost:3005/get-user-orders/601c1a3810234b218021aca3
+content-type: application/json
+
+###
